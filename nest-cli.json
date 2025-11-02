@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "compilerOptions": {
+    "deleteOutDir": true
+  },
+  "projects": {
+    "api-service": {
+      "type": "application",
+      "root": "src/api-service",
+      "entryFile": "main",
+      "sourceRoot": "src/api-service",
+      "compilerOptions": {
+        "tsConfigPath": "src/api-service/tsconfig.app.json"
+      }
+    },
+    "booking-service": {
+      "type": "application",
+      "root": "src/booking-service",
+      "entryFile": "main",
+      "sourceRoot": "src/booking-service",
+      "compilerOptions": {
+        "tsConfigPath": "src/booking-service/tsconfig.app.json"
+      }
+    }
+  }
+}
