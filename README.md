@@ -2,12 +2,6 @@
 
 Проект для бронирования столиков в ресторанах. Состоит из двух сервисов, которые общаются через Kafka.
 
-## Что нужно для запуска
-
-- Node.js
-- Docker и Docker Compose
-- PostgreSQL и Kafka запускаются через Docker
-
 ## Установка
 
 ```bash
@@ -55,19 +49,3 @@ POST http://localhost:3000/api/bookings
 ```
 GET http://localhost:3000/api/bookings/{bookingId}
 ```
-
-## Как это работает
-
-1. Создаешь бронь через API - она сохраняется со статусом CREATED
-2. Событие уходит в Kafka
-3. Booking Service подхватывает событие и проверяет доступность
-4. Статус меняется на CHECKING_AVAILABILITY, потом на CONFIRMED или REJECTED
-
-Если в ресторане уже есть бронь на это время - новая будет отклонена.
-
-## Структура
-
-- `src/api-service` - API сервис, принимает HTTP запросы
-- `src/booking-service` - сервис проверки доступности, слушает Kafka
-- `src/shared` - общий код (сущности, конфиги)
-
